@@ -1,0 +1,11 @@
+{
+  "id": "CoolCakeCook2",
+  "name": "Cool Cake Cook 2",
+  "author": "KuroLeaf",
+  "description": "做着玩的饼内容Mod",
+  "version": "0.0.1",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": ["BaseLib"],
+  "affects_gameplay": false
+}

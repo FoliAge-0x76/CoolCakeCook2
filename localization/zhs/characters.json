@@ -1,0 +1,16 @@
+{
+  "MONOLEAF-TUE_TUE.title": "TueTue",
+  "MONOLEAF-TUE_TUE.titleObject": "TueTue",
+  "MONOLEAF-TUE_TUE.description": "依靠饼料刀糖进行战斗的一个...生物？",
+  "MONOLEAF-TUE_TUE.cardsModifierTitle": "TueTue Cards",
+  "MONOLEAF-TUE_TUE.cardsModifierDescription": "TueTue的卡牌现在会出现在商店与奖励中。",
+  "MONOLEAF-TUE_TUE.pronounObject": "它",
+  "MONOLEAF-TUE_TUE.possessiveAdjective": "它的",
+  "MONOLEAF-TUE_TUE.pronounPossessive": "它的",
+  "MONOLEAF-TUE_TUE.pronounSubject": "它",
+  "MONOLEAF-TUE_TUE.aromaPrinciple": "[sine][pink]这是什么...[/pink][/sine]",
+  "MONOLEAF-TUE_TUE.eventDeathPrevention": "我还没吃饱呢...",
+  "MONOLEAF-TUE_TUE.banter.alive.endTurnPing": "能不能快点儿啊，\n兵贵神速啊！",
+  "MONOLEAF-TUE_TUE.banter.dead.endTurnPing": "托管中。",
+  "MONOLEAF-TUE_TUE.goldMonologue": "[sine]金币...[/sine]...",
+}
