@@ -15,19 +15,15 @@ namespace MonoLeaf.CoolCakeCook2Code.Cards;
 
 public class Pat() : CCC2_Cards(1,CardType.Attack,CardRarity.Basic,TargetType.AnyEnemy) {
 
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+	protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
+	protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromPower<AfterimagePower>()
-        ];
+	protected override async Task OnPlay(PlayerChoiceContext context,CardPlay cardPlay) {
+		await CommonActions.CardAttack(this, cardPlay).Execute(context);
+	}
 
-    protected override async Task OnPlay(PlayerChoiceContext context,CardPlay cardPlay) {
-        await CommonActions.CardAttack(this, cardPlay).Execute(context);
-    }
-
-    protected override void OnUpgrade() {
-        DynamicVars.Damage.UpgradeValueBy(3m);
-    }
+	protected override void OnUpgrade() {
+		DynamicVars.Damage.UpgradeValueBy(3m);
+	}
 }

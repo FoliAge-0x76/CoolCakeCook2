@@ -1,9 +1,13 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
+using BaseLib.Patches.Content;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
+using MonoLeaf.CoolCakeCook2Code.Localization;
 using MonoLeaf.CoolCakeCook2Code.Characters;
 using MonoLeaf.CoolCakeCook2Code.Extensions;
-using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace MonoLeaf.CoolCakeCook2Code.Cards;
 
@@ -22,4 +26,8 @@ public abstract class CCC2_Cards(int cost, CardType type, CardRarity rarity, Tar
     
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+
+    public virtual bool IsStrikeAttack => false;
+    public virtual bool IsCakeAttack => false;
+
 }

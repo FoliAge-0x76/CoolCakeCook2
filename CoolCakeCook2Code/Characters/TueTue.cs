@@ -5,6 +5,8 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Models.PotionPools;
+using MegaCrit.Sts2.Core.Models.RelicPools;
 using MonoLeaf.CoolCakeCook2Code.Cards;
 using Godot;
 
@@ -31,7 +33,7 @@ public class TueTue : PlaceholderCharacterModel
 		ModelDb.Card<DefendIronclad>(),
 		ModelDb.Card<DefendIronclad>(),
 		ModelDb.Card<DefendIronclad>(),
-		ModelDb.Card<DefendIronclad>()
+		ModelDb.Card<Pancake>()
 	];
 
 	public override IReadOnlyList<RelicModel> StartingRelics =>
@@ -40,8 +42,8 @@ public class TueTue : PlaceholderCharacterModel
 	];
 	
 	public override CardPoolModel CardPool => ModelDb.CardPool<TueTueCardPool>();
-	public override RelicPoolModel RelicPool => ModelDb.RelicPool<TueTueRelicPool>();
-	public override PotionPoolModel PotionPool => ModelDb.PotionPool<TueTuePotionPool>();
+	public override RelicPoolModel RelicPool => ModelDb.RelicPool<SharedRelicPool>();
+	public override PotionPoolModel PotionPool => ModelDb.PotionPool<SharedPotionPool>();
 	
 	/*  PlaceholderCharacterModel will utilize placeholder basegame assets for most of your character assets until you
 		override all the other methods that define those assets. 
