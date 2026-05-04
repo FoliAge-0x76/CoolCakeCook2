@@ -6,29 +6,29 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="CCCook2\localization\eng\**" />
-    <EmbeddedResource Remove="CCCook2\localization\eng\**" />
+    <Compile Remove="CoolCakeCook2\localization\eng\**" />
+    <EmbeddedResource Remove="CoolCakeCook2\localization\eng\**" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CCCook2\images\card_portraits\big\pat.png" />
-    <Content Include="CCCook2\images\card_portraits\pat.png" />
-    <Content Include="CCCook2\images\charui\big_energy.png" />
-    <Content Include="CCCook2\images\charui\character_icon_char_name.png" />
-    <Content Include="CCCook2\images\charui\char_select_char_name.png" />
-    <Content Include="CCCook2\images\charui\char_select_char_name_locked.png" />
-    <Content Include="CCCook2\images\charui\map_marker_char_name.png" />
-    <Content Include="CCCook2\images\charui\text_energy.png" />
-    <Content Include="CCCook2\images\powers\big\power.png" />
-    <Content Include="CCCook2\images\powers\power.png" />
-    <Content Include="CCCook2\images\relics\big\relic.png" />
-    <Content Include="CCCook2\images\relics\relic.png" />
-    <Content Include="CCCook2\images\relics\relic_outline.png" />
-    <Content Include="CCCook2\mod_image.png" />
+    <Content Include="CoolCakeCook2\images\card_portraits\big\pat.png" />
+    <Content Include="CoolCakeCook2\images\card_portraits\pat.png" />
+    <Content Include="CoolCakeCook2\images\charui\big_energy.png" />
+    <Content Include="CoolCakeCook2\images\charui\character_icon_char_name.png" />
+    <Content Include="CoolCakeCook2\images\charui\char_select_char_name.png" />
+    <Content Include="CoolCakeCook2\images\charui\char_select_char_name_locked.png" />
+    <Content Include="CoolCakeCook2\images\charui\map_marker_char_name.png" />
+    <Content Include="CoolCakeCook2\images\charui\text_energy.png" />
+    <Content Include="CoolCakeCook2\images\powers\big\power.png" />
+    <Content Include="CoolCakeCook2\images\powers\power.png" />
+    <Content Include="CoolCakeCook2\images\relics\big\relic.png" />
+    <Content Include="CoolCakeCook2\images\relics\relic.png" />
+    <Content Include="CoolCakeCook2\images\relics\relic_outline.png" />
+    <Content Include="CoolCakeCook2\mod_image.png" />
     <Content Include="localization\zhs\cards.json" />
     <Content Include="localization\zhs\characters.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.5" />
+    <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.9" />
     <AdditionalFiles Include="localization/**/*.json" />
   </ItemGroup>
   <ItemGroup>
