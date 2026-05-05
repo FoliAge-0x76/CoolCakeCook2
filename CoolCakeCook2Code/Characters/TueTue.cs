@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models.PotionPools;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MonoLeaf.CoolCakeCook2Code.Cards;
 using Godot;
+using System.Collections.Generic;
 
 namespace MonoLeaf.CoolCakeCook2Code.Characters;
 
@@ -32,7 +33,7 @@ public class TueTue : PlaceholderCharacterModel
 		ModelDb.Card<DefendIronclad>(),
 		ModelDb.Card<DefendIronclad>(),
 		ModelDb.Card<DefendIronclad>(),
-		ModelDb.Card<DefendIronclad>(),
+		ModelDb.Card<ScallionPancake>(),
 		ModelDb.Card<Pancake>()
 	];
 

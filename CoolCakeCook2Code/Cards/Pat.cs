@@ -10,6 +10,8 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MonoLeaf.CoolCakeCook2Code.Cards;
 

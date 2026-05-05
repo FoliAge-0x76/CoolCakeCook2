@@ -2,5 +2,7 @@
   "MONOLEAF-PAT.description": "造成{Damage:diff()}点伤害。\n[gold]打击类攻击[/gold]。",
   "MONOLEAF-PAT.title": "拍",
   "MONOLEAF-PANCAKE.description": "造成{Damage:diff()}点伤害。\n给予{VulnerablePower:diff()}层[gold]易伤[/gold]。\n[gold]饼类攻击[/gold]。",
-  "MONOLEAF-PANCAKE.title": "大饼"
+  "MONOLEAF-PANCAKE.title": "大饼",
+  "MONOLEAF-SCALLION_PANCAKE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n每当受到攻击时，获得{Scallion:diff()}点[gold]格挡[/gold]。",
+  "MONOLEAF-SCALLION_PANCAKE.title": "油饼"
 }

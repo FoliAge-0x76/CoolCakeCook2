@@ -11,6 +11,8 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using MonoLeaf.CoolCakeCook2Code.Characters;
 using MonoLeaf.CoolCakeCook2Code.Extensions;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MonoLeaf.CoolCakeCook2Code.Cards;
 

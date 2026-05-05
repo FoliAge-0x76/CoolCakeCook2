@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4iytgw0dmadw"
-path="res://.godot/imported/power.png-408191f8e5326087ac31cf5a67f6a547.ctex"
+uid="uid://6cdolk0kjwq0"
+path="res://.godot/imported/scallion.png-dccf011d6ab084164f3807c30f740c2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CoolCakeCook2/images/powers/big/power.png"
-dest_files=["res://.godot/imported/power.png-408191f8e5326087ac31cf5a67f6a547.ctex"]
+source_file="res://CoolCakeCook2/images/powers/scallion.png"
+dest_files=["res://.godot/imported/scallion.png-dccf011d6ab084164f3807c30f740c2a.ctex"]
 
 [params]
 
