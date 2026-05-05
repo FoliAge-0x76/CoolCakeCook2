@@ -1,6 +1,5 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using BaseLib.Patches.Content;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,39 +12,31 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using MonoLeaf.CoolCakeCook2Code.Characters;
 using MonoLeaf.CoolCakeCook2Code.Extensions;
+using MonoLeaf.CoolCakeCook2Code.Localization;
 using MonoLeaf.CoolCakeCook2Code.Powers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MonoLeaf.CoolCakeCook2Code.Cards;
 
-public class ScallionPancake() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
+public class MountTaiCrush() : CCC2_Cards(3, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
 
-    // 油饼：1c 获得6点格挡，每当受到伤害，获得3点格挡。
+    // 泰山压饼：3c 保留。造成23点伤害。
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(6, ValueProp.Move),
-        new DynamicVar("Scallion",3)
+        new DamageVar(23, ValueProp.Move)
     ];
-
+    public override List<CardKeyword> CanonicalKeywords => [
+        CardKeyword.Retain
+    ];
     protected override List<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.Static(StaticHoverTip.Block)
+        HoverTipFactory.FromKeyword(CustomKeyWords.StrikeAttack)
     ];
-
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
-        await CommonActions.CardBlock(this, cardPlay);
-
-        decimal amount = base.DynamicVars["Scallion"].BaseValue;
-
-        await PowerCmd.Apply<Scallion>(
-            base.Owner?.Creature,
-            amount,
-            base.Owner.Creature,
-            this
-        );
+        await CommonActions.CardAttack(this, cardPlay).Execute(context);
     }
 
     protected override void OnUpgrade() {
-        DynamicVars.Block.UpgradeValueBy(2m);
-        DynamicVars["Scallion"].UpgradeValueBy(1m);
+        DynamicVars.Damage.UpgradeValueBy(5m);
     }
 }

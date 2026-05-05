@@ -33,7 +33,7 @@ public class TueTue : PlaceholderCharacterModel
 		ModelDb.Card<DefendIronclad>(),
 		ModelDb.Card<DefendIronclad>(),
 		ModelDb.Card<DefendIronclad>(),
-		ModelDb.Card<ScallionPancake>(),
+		ModelDb.Card<DefendIronclad>(),
 		ModelDb.Card<Pancake>()
 	];
 

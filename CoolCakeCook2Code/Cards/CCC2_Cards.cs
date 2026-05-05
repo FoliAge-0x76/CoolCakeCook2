@@ -8,6 +8,7 @@ using MonoLeaf.CoolCakeCook2Code.Localization;
 using MonoLeaf.CoolCakeCook2Code.Characters;
 using MonoLeaf.CoolCakeCook2Code.Extensions;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models;
 
 namespace MonoLeaf.CoolCakeCook2Code.Cards;
 
@@ -30,4 +31,6 @@ public abstract class CCC2_Cards(int cost, CardType type, CardRarity rarity, Tar
     public virtual bool IsStrikeAttack => false;
     public virtual bool IsCakeAttack => false;
 
+
 }
+

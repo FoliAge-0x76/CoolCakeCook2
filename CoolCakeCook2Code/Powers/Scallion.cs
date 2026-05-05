@@ -35,6 +35,7 @@ public sealed class Scallion : CCC2_Powers {
         Creature dealer, CardModel cardSource) {
 
         Flash();
+        if(target != Owner) return;
         await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null, fast: true);
     }
 

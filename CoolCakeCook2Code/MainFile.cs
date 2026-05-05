@@ -1,6 +1,9 @@
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using MonoLeaf.CoolCakeCook2Code.Cards;
+using MonoLeaf.CoolCakeCook2Code.Characters;
 
 namespace MonoLeaf.CoolCakeCook2Code;
 

@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using MonoLeaf.CoolCakeCook2Code.Characters;
 using MonoLeaf.CoolCakeCook2Code.Extensions;
+using MonoLeaf.CoolCakeCook2Code.Localization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,8 +27,9 @@ public class Pancake() : CCC2_Cards(2, CardType.Attack, CardRarity.Basic, Target
 	];
 
 	protected override List<IHoverTip> ExtraHoverTips => [
-		HoverTipFactory.FromPower<VulnerablePower>()
-	];
+		HoverTipFactory.FromPower<VulnerablePower>(),
+		HoverTipFactory.FromKeyword(CustomKeyWords.CakeAttack)
+    ];
 
 	protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
 		await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this)

@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MonoLeaf.CoolCakeCook2Code.Localization;
 
 namespace MonoLeaf.CoolCakeCook2Code.Cards;
 
@@ -20,8 +21,10 @@ public class Pat() : CCC2_Cards(1,CardType.Attack,CardRarity.Basic,TargetType.An
 	protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
 	protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
-
-	protected override async Task OnPlay(PlayerChoiceContext context,CardPlay cardPlay) {
+    protected override List<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.FromKeyword(CustomKeyWords.StrikeAttack)
+	];
+    protected override async Task OnPlay(PlayerChoiceContext context,CardPlay cardPlay) {
 		await CommonActions.CardAttack(this, cardPlay).Execute(context);
 	}
 

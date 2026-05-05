@@ -1,0 +1,8 @@
+{
+  "MONOLEAF-STRIKEATTACK.description": "能受到对“打击”的加成。",
+  "MONOLEAF-STRIKEATTACK.title": "打击类攻击",
+  "MONOLEAF-CAKEATTACK.description": "能受到对“饼类攻击”的加成。",
+  "MONOLEAF-CAKEATTACK.title": "饼类攻击",
+  "MONOLEAF-DURABILITY.description": "这张牌在本场战斗打出一定次数后将被消耗。",
+  "MONOLEAF-DURABILITY.title": "耐久"
+}

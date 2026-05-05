@@ -1,51 +1,47 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using BaseLib.Patches.Content;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using MonoLeaf.CoolCakeCook2Code.Characters;
 using MonoLeaf.CoolCakeCook2Code.Extensions;
-using MonoLeaf.CoolCakeCook2Code.Powers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MonoLeaf.CoolCakeCook2Code.Cards;
 
-public class ScallionPancake() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
+public class Burrito() : CCC2_Cards(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy) {
 
-    // 油饼：1c 获得6点格挡，每当受到伤害，获得3点格挡。
+    // 卷饼：1c 给予1/2层虚弱。若这名敌人的意图是攻击，抽3张牌。
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(6, ValueProp.Move),
-        new DynamicVar("Scallion",3)
+        new PowerVar<WeakPower>(1m),
+        new CardsVar(3)
     ];
 
     protected override List<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.Static(StaticHoverTip.Block)
+        HoverTipFactory.FromPower<WeakPower>()
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
-        await CommonActions.CardBlock(this, cardPlay);
-
-        decimal amount = base.DynamicVars["Scallion"].BaseValue;
-
-        await PowerCmd.Apply<Scallion>(
-            base.Owner?.Creature,
-            amount,
+        await PowerCmd.Apply<WeakPower>(
+            cardPlay.Target,
+            base.DynamicVars.Weak.BaseValue,
             base.Owner.Creature,
             this
         );
+        if(cardPlay.Target.Monster.IntendsToAttack) {
+            await CardPileCmd.Draw(context, base.DynamicVars.Cards.BaseValue, base.Owner);
+        }
     }
 
     protected override void OnUpgrade() {
-        DynamicVars.Block.UpgradeValueBy(2m);
-        DynamicVars["Scallion"].UpgradeValueBy(1m);
+        DynamicVars.Weak.UpgradeValueBy(1m);
     }
 }
