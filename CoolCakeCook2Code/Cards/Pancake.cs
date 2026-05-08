@@ -9,13 +9,13 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using MonoLeaf.CoolCakeCook2Code.Characters;
-using MonoLeaf.CoolCakeCook2Code.Extensions;
-using MonoLeaf.CoolCakeCook2Code.Localization;
+using CCCook2.CoolCakeCook2Code.Characters;
+using CCCook2.CoolCakeCook2Code.Extensions;
+using CCCook2.CoolCakeCook2Code.Localization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MonoLeaf.CoolCakeCook2Code.Cards;
+namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Pancake() : CCC2_Cards(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy) {
 
@@ -25,11 +25,12 @@ public class Pancake() : CCC2_Cards(2, CardType.Attack, CardRarity.Basic, Target
 		new DamageVar(12, ValueProp.Move),
 		new PowerVar<VulnerablePower>(1m)
 	];
-
+	public override List<CardKeyword> CanonicalKeywords => [
+		CustomKeyword.CakeAttack
+	];
 	protected override List<IHoverTip> ExtraHoverTips => [
-		HoverTipFactory.FromPower<VulnerablePower>(),
-		HoverTipFactory.FromKeyword(CustomKeyWords.CakeAttack)
-    ];
+		HoverTipFactory.FromPower<VulnerablePower>()
+	];
 
 	protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
 		await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this)

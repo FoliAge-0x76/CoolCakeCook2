@@ -9,12 +9,12 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using MonoLeaf.CoolCakeCook2Code.Characters;
-using MonoLeaf.CoolCakeCook2Code.Extensions;
+using CCCook2.CoolCakeCook2Code.Characters;
+using CCCook2.CoolCakeCook2Code.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MonoLeaf.CoolCakeCook2Code.Cards;
+namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Burrito() : CCC2_Cards(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy) {
 

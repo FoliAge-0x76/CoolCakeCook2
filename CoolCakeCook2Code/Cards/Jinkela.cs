@@ -1,6 +1,5 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using BaseLib.Patches.Content;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,39 +12,31 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using CCCook2.CoolCakeCook2Code.Characters;
 using CCCook2.CoolCakeCook2Code.Extensions;
+using CCCook2.CoolCakeCook2Code.Localization;
 using CCCook2.CoolCakeCook2Code.Powers;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class ScallionPancake() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
+public class Jinkela() : CCC2_Cards(1, CardType.Power, CardRarity.Uncommon, TargetType.Self) {
 
-    // 油饼：1c 获得6点格挡，每当受到伤害，获得3点格挡。
+    // 金坷垃：1c 每当你获得增益时，获得1点能量。每当你获得减益时，抽1张牌。
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(6, ValueProp.Move),
-        new DynamicVar("Scallion",3)
-    ];
-
-    protected override List<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.Static(StaticHoverTip.Block)
-    ];
-
+        new EnergyVar(1),
+        new CardsVar(1)
+        ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
-        await CommonActions.CardBlock(this, cardPlay);
 
-        decimal amount = base.DynamicVars["Scallion"].BaseValue;
-
-        await PowerCmd.Apply<Scallion>(
+        await PowerCmd.Apply<JinkelaPower>(
             base.Owner?.Creature,
-            amount,
+            base.DynamicVars.Cards.BaseValue,
             base.Owner.Creature,
             this
         );
     }
 
     protected override void OnUpgrade() {
-        DynamicVars.Block.UpgradeValueBy(2m);
-        DynamicVars["Scallion"].UpgradeValueBy(1m);
+        DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }

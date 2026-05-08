@@ -1,7 +1,7 @@
 using Godot;
 using BaseLib;
 using System.IO;
-namespace MonoLeaf.CoolCakeCook2Code.Extensions;
+namespace CCCook2.CoolCakeCook2Code.Extensions;
 
 //Mostly utilities to get asset paths.
 public static class StringExtensions

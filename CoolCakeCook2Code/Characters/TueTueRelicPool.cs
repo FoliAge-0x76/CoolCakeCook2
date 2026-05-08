@@ -1,8 +1,8 @@
 using BaseLib.Abstracts;
-using MonoLeaf.CoolCakeCook2Code.Extensions;
+using CCCook2.CoolCakeCook2Code.Extensions;
 using Godot;
 
-namespace MonoLeaf.CoolCakeCook2Code.Characters;
+namespace CCCook2.CoolCakeCook2Code.Characters;
 
 public class TueTueRelicPool : CustomRelicPoolModel
 {

@@ -11,39 +11,39 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using MonoLeaf.CoolCakeCook2Code.Extensions;
+using CCCook2.CoolCakeCook2Code.Extensions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MonoLeaf.CoolCakeCook2Code.Powers;
+namespace CCCook2.CoolCakeCook2Code.Powers;
 
 public sealed class Scallion : CCC2_Powers {
-    public override PowerType Type => PowerType.Buff;
+	public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.Counter;
+	public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override bool IsInstanced => false;
+	public override bool IsInstanced => false;
 
-    protected override List<IHoverTip> ExtraHoverTips =>
-        [
-            HoverTipFactory.Static(StaticHoverTip.Block)
-        ];
+	protected override List<IHoverTip> ExtraHoverTips =>
+		[
+			HoverTipFactory.Static(StaticHoverTip.Block)
+		];
 
-    // 当玩家受到伤害后触发
-    public override async Task AfterDamageReceived(PlayerChoiceContext context, Creature target,
-        DamageResult result, ValueProp props,
-        Creature dealer, CardModel cardSource) {
+	// 当玩家受到伤害后触发
+	public override async Task AfterDamageReceived(PlayerChoiceContext context, Creature target,
+		DamageResult result, ValueProp props,
+		Creature dealer, CardModel cardSource) {
 
-        Flash();
-        if(target != Owner) return;
-        await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null, fast: true);
-    }
+		Flash();
+		if(target != Owner) return;
+		await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null, fast: true);
+	}
 
-    // 回合结束时触发
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
-        CombatState combatState) {
-        if (side == Owner.Side) {
-            await PowerCmd.Remove(this); // 清除能力
-        }
-    }
+	// 回合结束时触发
+	public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
+		CombatState combatState) {
+		if (side == Owner.Side) {
+			await PowerCmd.Remove(this); // 清除能力
+		}
+	}
 }

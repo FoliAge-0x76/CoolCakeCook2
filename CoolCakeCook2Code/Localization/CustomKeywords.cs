@@ -1,9 +1,9 @@
 using BaseLib.Patches.Content;
 using MegaCrit.Sts2.Core.Entities.Cards;
 
-namespace MonoLeaf.CoolCakeCook2Code.Localization;
+namespace CCCook2.CoolCakeCook2Code.Localization;
 
-public static class CustomKeyWords {
+public static class CustomKeyword {
 
     //定义字段：耐久
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]

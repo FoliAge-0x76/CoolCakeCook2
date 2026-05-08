@@ -1,17 +1,17 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using MonoLeaf.CoolCakeCook2Code.Extensions;
+using CCCook2.CoolCakeCook2Code.Extensions;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Models.PotionPools;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MonoLeaf.CoolCakeCook2Code.Cards;
+using CCCook2.CoolCakeCook2Code.Cards;
 using Godot;
 using System.Collections.Generic;
 
-namespace MonoLeaf.CoolCakeCook2Code.Characters;
+namespace CCCook2.CoolCakeCook2Code.Characters;
 
 public class TueTue : PlaceholderCharacterModel
 {

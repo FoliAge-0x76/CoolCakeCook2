@@ -1,14 +1,16 @@
 {
-  "MONOLEAF-PAT.description": "造成{Damage:diff()}点伤害。\n[gold]打击类攻击[/gold]。",
-  "MONOLEAF-PAT.title": "拍",
-  "MONOLEAF-PANCAKE.description": "造成{Damage:diff()}点伤害。\n给予{VulnerablePower:diff()}层[gold]易伤[/gold]。\n[gold]饼类攻击[/gold]。",
-  "MONOLEAF-PANCAKE.title": "大饼",
-  "MONOLEAF-SCALLION_PANCAKE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n每当受到攻击时，获得{Scallion:diff()}点[gold]格挡[/gold]。",
-  "MONOLEAF-SCALLION_PANCAKE.title": "油饼",
-  "MONOLEAF-MOUNT_TAI_CRUSH.description": "造成{Damage:diff()}点伤害。\n[gold]打击类攻击[/gold]。",
-  "MONOLEAF-MOUNT_TAI_CRUSH.title": "泰山压饼",
-  "MONOLEAF-BURRITO.description": "给予{WeakPower:diff()}层[gold]虚弱[/gold]。\n若这名敌人的意图是攻击，抽{Cards:diff()}张牌。",
-  "MONOLEAF-BURRITO.title": "卷饼",
-  "MONOLEAF-THE_EVEREST_CRUSH.description": "造成{Damage:diff()}点伤害。\n[gold]耐久[/gold]{Durability:diff()}。\n[gold]打击类攻击[/gold]。",
-  "MONOLEAF-THE_EVEREST_CRUSH.title": "珠峰压饼"
+  "CCCOOK2-PAT.description": "造成{Damage:diff()}点伤害。",
+  "CCCOOK2-PAT.title": "拍",
+  "CCCOOK2-PANCAKE.description": "造成{Damage:diff()}点伤害。\n给予{VulnerablePower:diff()}层[gold]易伤[/gold]。",
+  "CCCOOK2-PANCAKE.title": "大饼",
+  "CCCOOK2-SCALLION_PANCAKE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n每当受到攻击时，获得{Scallion:diff()}点[gold]格挡[/gold]。",
+  "CCCOOK2-SCALLION_PANCAKE.title": "油饼",
+  "CCCOOK2-MOUNT_TAI_CRUSH.description": "造成{Damage:diff()}点伤害。",
+  "CCCOOK2-MOUNT_TAI_CRUSH.title": "泰山压饼",
+  "CCCOOK2-BURRITO.description": "给予{WeakPower:diff()}层[gold]虚弱[/gold]。\n若这名敌人的意图是攻击，抽{Cards:diff()}张牌。",
+  "CCCOOK2-BURRITO.title": "卷饼",
+  "CCCOOK2-THE_EVEREST_CRUSH.description": "造成{Damage:diff()}点伤害。\n[gold]耐久[/gold]{Durability:diff()}。",
+  "CCCOOK2-THE_EVEREST_CRUSH.title": "珠峰压饼",
+  "CCCOOK2-JINKELA.description": "每当你获得增益时，获得{Energy:energyIcons()}。每当你获得减益时，抽{Cards:diff()}张牌。",
+  "CCCOOK2-JINKELA.title": "金坷垃"
 }

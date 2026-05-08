@@ -11,21 +11,24 @@ using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
-using MonoLeaf.CoolCakeCook2Code.Characters;
-using MonoLeaf.CoolCakeCook2Code.Extensions;
-using MonoLeaf.CoolCakeCook2Code.Powers;
-using MonoLeaf.CoolCakeCook2Code.Localization;
+using CCCook2.CoolCakeCook2Code.Characters;
+using CCCook2.CoolCakeCook2Code.Extensions;
+using CCCook2.CoolCakeCook2Code.Powers;
+using CCCook2.CoolCakeCook2Code.Localization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MonoLeaf.CoolCakeCook2Code.Cards;
+namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class TheEverestCrush() : CCC2_Cards(0, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy) {
 
     // 珠峰压饼（用于测试耐久词条）：0c 造成325点伤害。耐久3。
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+    public override List<CardKeyword> CanonicalKeywords => [
+        CustomKeyword.StrikeAttack
+    ];
     protected override List<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromKeyword(CustomKeyWords.Durability),
-        HoverTipFactory.FromKeyword(CustomKeyWords.StrikeAttack)
+        HoverTipFactory.FromKeyword(CustomKeyword.Durability)
     ];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(325, ValueProp.Move),
