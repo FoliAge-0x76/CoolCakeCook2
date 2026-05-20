@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -22,23 +23,34 @@ public sealed class JinkelaPower : CCC2_Powers {
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
-    public override bool IsInstanced => true;
 
     protected override List<IHoverTip> ExtraHoverTips =>
         [
-            HoverTipFactory.Static(StaticHoverTip.Energy)
+            HoverTipFactory.Static(StaticHoverTip.Block)
         ];
     public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature applier, CardModel cardSource) {
         if (!(amount <= 0m) && target == base.Owner) {
             if (power.GetTypeForAmount(amount) == PowerType.Debuff) {
-                await CardPileCmd.Draw(new BlockingPlayerChoiceContext(), base.Amount, base.Owner.Player);
+                Flash();
+                await CardPileCmd.Draw(new BlockingPlayerChoiceContext(), 1, base.Owner.Player);
             }
-            else if (power.GetTypeForAmount(amount) == PowerType.Buff) { 
-                await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, base.Owner.Player);
-            }
-            Flash();
         }
     }
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) {
+        if (player == base.Owner.Player) {
+            
+            int blockgain = 0;
+            IReadOnlyList<PowerModel> powers = base.Owner.Powers;
+            foreach (PowerModel power in powers) {
+                if (power.Type == PowerType.Buff && power.Amount > 0) {
+                    blockgain += base.Amount;
+                }
+            }
 
+            if(blockgain > 0) {
+                Flash();
+                await CreatureCmd.GainBlock(base.Owner, blockgain, ValueProp.Unpowered, null);
+            }
+        }
+    }
 }

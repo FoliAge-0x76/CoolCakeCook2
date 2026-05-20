@@ -25,7 +25,7 @@
       <HintPath>..\..\..\..\Programs\Steam\steamapps\common\Slay the Spire 2\data_sts2_windows_x86_64\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="BaseLib">
-      <HintPath>..\..\..\..\Programs\Steam\steamapps\common\Slay the Spire 2\mods\BaseLib.3.0.6\BaseLib.dll</HintPath>
+      <HintPath>..\..\..\..\Programs\Steam\steamapps\common\Slay the Spire 2\mods\BaseLib\BaseLib.dll</HintPath>
     </Reference>
     <Reference Include="GodotSharp">
       <HintPath>..\..\..\..\Programs\Steam\steamapps\common\Slay the Spire 2\data_sts2_windows_x86_64\GodotSharp.dll</HintPath>
@@ -37,5 +37,8 @@
   <ItemGroup>
     <Using Include="BaseLib" />
     <Using Include="Godot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CoolCakeCook2Code\Cards\Colorless\" />
   </ItemGroup>
 </Project>

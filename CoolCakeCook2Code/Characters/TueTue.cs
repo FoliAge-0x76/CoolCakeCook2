@@ -30,10 +30,10 @@ public class TueTue : PlaceholderCharacterModel
 		ModelDb.Card<Pat>(),
 		ModelDb.Card<Pat>(),
 		ModelDb.Card<Pat>(),
-		ModelDb.Card<DefendIronclad>(),
-		ModelDb.Card<DefendIronclad>(),
-		ModelDb.Card<DefendIronclad>(),
-		ModelDb.Card<DefendIronclad>(),
+		ModelDb.Card<DefendTueTue>(),
+		ModelDb.Card<DefendTueTue>(),
+		ModelDb.Card<DefendTueTue>(),
+		ModelDb.Card<DefendTueTue>(),
 		ModelDb.Card<Pancake>()
 	];
 
