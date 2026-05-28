@@ -11,7 +11,7 @@
   "CCCOOK2-MOUNT_TAI_CRUSH.title": "泰山压饼",
   "CCCOOK2-BURRITO.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n若这名敌人的意图是攻击，抽{Cards:diff()}张牌。",
   "CCCOOK2-BURRITO.title": "卷饼",
-  "CCCOOK2-THE_EVEREST_CRUSH.description": "造成{Damage:diff()}点伤害。\n[gold]耐久[/gold]{Durability:diff()}。",
+  "CCCOOK2-THE_EVEREST_CRUSH.description": "造成{Damage:diff()}点伤害。",
   "CCCOOK2-THE_EVEREST_CRUSH.title": "珠峰压饼",
   "CCCOOK2-JINKELA.description": "回合开始时，每有一种增益获得{Block:diff()}点[gold]格挡[/gold]。\n每当你获得减益时，抽{Cards:diff()}张牌。",
   "CCCOOK2-JINKELA.title": "金坷垃",
@@ -21,7 +21,7 @@
   "CCCOOK2-SIUMAI.title": "烧卖",
   "CCCOOK2-SIUMAI.description": "去除{Block:diff()}点[gold]格挡[/gold]。\n造成{Damage:diff()}点伤害。\n给予{WeakPower:diff()}层[gold]虚弱[/gold]。",
   "CCCOOK2-DANGO.title": "团子",
-  "CCCOOK2-DANGO.description": "你的下一张[gold]饼类攻击[/gold]费用减少{DecreaseCakeAttackCostPower:diff()}。\n[gold]耐久[/gold]{Durability:diff()}。",
+  "CCCOOK2-DANGO.description": "你的下一张[gold]饼类攻击[/gold]费用减少{DecreaseCakeAttackCostPower:diff()}。\n[gold]余音[/gold]{Aftertone:diff()}。",
   "CCCOOK2-YEAST.title": "酵母菌",
   "CCCOOK2-YEAST.description": "获得{VigorAmount:diff()}点[gold]活力[/gold]。\n每个回合开始时，将活力翻倍。",
   "CCCOOK2-MAGIC_DOUGH.title": "魔法面团",
@@ -39,5 +39,14 @@
   "CCCOOK2-DAOXIAO_NOODLES.title": "刀削面",
   "CCCOOK2-DAOXIAO_NOODLES.description": "消耗堆中每有一张[gold]小刀[/gold]，就造成{Damage:diff()}点伤害1次。{InCombat:\n（攻击{CalculatedShivs:diff()}次）|}",
   "CCCOOK2-WAFFLE.title": "华夫饼",
-  "CCCOOK2-WAFFLE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n本回合受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。"
+  "CCCOOK2-WAFFLE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n本回合受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
+  "CCCOOK2-SEASONING.description": "",
+  "CCCOOK2-SEASONING.title": "料",
+  "CCCOOK2-SALT.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n对手牌[gold]加料[/gold]1次：[purple]锋利[/purple][blue]{Damage:diff()}[/blue]。",
+  "CCCOOK2-SALT.title": "盐",
+  "CCCOOK2-SALT.selectionScreenPrompt": "选择一张牌，为其附魔[purple]锋利[/purple][blue]{Damage:diff()}[/blue]。",
+  "CCCOOK2-KIRI.description": "消耗所有牌堆中的[gold]小刀[/gold]。\n对所有敌人造成消耗[gold]小刀[/gold]数量{CalculationExtra:diff()}倍的伤害。{InCombat:\n（造成{CalculatedDamage:diff()}点伤害）|}",
+  "CCCOOK2-KIRI.title": "斩",
+  "CCCOOK2-BONING_KNIFE.description": "造成{Damage:diff()}点伤害。\n将{Cards:diff()}张带有随机[gold]附魔[/gold]的[gold]小刀[/gold]加入你的手牌。",
+  "CCCOOK2-BONING_KNIFE.title": "剔骨刀"
 }

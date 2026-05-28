@@ -34,7 +34,8 @@ public class TueTue : PlaceholderCharacterModel
 		ModelDb.Card<DefendTueTue>(),
 		ModelDb.Card<DefendTueTue>(),
 		ModelDb.Card<DefendTueTue>(),
-		ModelDb.Card<Pancake>()
+        ModelDb.Card<Salt>(),
+        ModelDb.Card<Pancake>()
 	];
 
 	public override IReadOnlyList<RelicModel> StartingRelics =>

@@ -61,7 +61,7 @@ public sealed class DecreaseCakeAttackCostPower : CCC2_Powers {
         if (!flag) {
             return false;
         }
-        modifiedCost = originalCost - 1;
+        modifiedCost = originalCost - Amount;
         return true;
     }
 
@@ -87,7 +87,7 @@ public sealed class DecreaseCakeAttackCostPower : CCC2_Powers {
                 }
             }
             if (flag) {
-                await PowerCmd.Decrement(this);
+                await PowerCmd.Remove(this);
             }
         }
     }

@@ -23,7 +23,7 @@ public sealed class YeastPower : CCC2_Powers {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState) {
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (side == base.Owner.Side) {
             Flash();
             int currentVigor = Owner.GetPower<VigorPower>()?.Amount ?? 0;

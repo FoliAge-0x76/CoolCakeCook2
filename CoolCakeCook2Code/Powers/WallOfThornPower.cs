@@ -29,7 +29,7 @@ public sealed class WallOfThornPower : CCC2_Powers {
         ];
 
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
-        ICombatState combatState) {
+        IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (side == Owner.Side) {
             await PowerCmd.Apply<ThornsPower>(choiceContext, Owner, -Amount, Owner, null);
             await PowerCmd.Remove(this);

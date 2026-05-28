@@ -31,9 +31,7 @@ public class Unsheathe() : CCC2_Cards(1, CardType.Skill, CardRarity.Uncommon, Ta
     ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        for (int i = 0; i < base.DynamicVars.Cards.IntValue; i++) {
-            await Shiv.CreateInHand(base.Owner, base.CombatState);
-        }
+        await Shiv.CreateInHand(base.Owner, base.DynamicVars.Cards.IntValue, base.CombatState);
     }
 
     protected override void OnUpgrade() {

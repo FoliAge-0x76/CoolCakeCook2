@@ -35,7 +35,7 @@ public sealed class PlatedArmorPower : CCC2_Powers {
         await PowerCmd.Decrement(this);
     }
 
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side) {
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
 
         if (side == Owner.Side) {
             Flash();

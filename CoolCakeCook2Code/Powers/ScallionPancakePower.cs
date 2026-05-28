@@ -39,7 +39,7 @@ public sealed class ScallionPancakePower : CCC2_Powers {
 
 	// 回合结束时触发
 	public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
-		ICombatState combatState) {
+        IReadOnlyList<Creature> participants, ICombatState combatState) {
 		if (side == Owner.Side) {
 			await PowerCmd.Remove(this); // 清除能力
 		}

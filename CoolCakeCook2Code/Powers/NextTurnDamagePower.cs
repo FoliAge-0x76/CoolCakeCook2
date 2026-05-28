@@ -25,7 +25,7 @@ public sealed class NextTurnDamagePower : CCC2_Powers {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side) {
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants) {
 
         if (side == Owner.Side) {
             await CreatureCmd.Damage(choiceContext, base.Owner, base.Amount, ValueProp.Unpowered, base.Owner, null);

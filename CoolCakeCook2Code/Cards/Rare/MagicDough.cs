@@ -20,9 +20,13 @@ using CoolCakeCook2.CoolCakeCook2Code.Cards.Base;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class MagicDough() : CCC2_Cards(1, CardType.Skill, CardRarity.Rare, TargetType.Self) {
+public class MagicDough() : CCC2_Cards(0, CardType.Skill, CardRarity.Rare, TargetType.Self) {
 
-    // 魔法面团：1c 阻止本回合受到的未被格挡的伤害 并在下回合结束时受到等量伤害
+    // 魔法面团：0c 阻止本回合受到的未被格挡的伤害 并在下回合结束时受到等量伤害 消耗
+
+    public override List<CardKeyword> CanonicalKeywords => [
+        CardKeyword.Exhaust
+    ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
 
         await PowerCmd.Apply<MagicDoughPower>(

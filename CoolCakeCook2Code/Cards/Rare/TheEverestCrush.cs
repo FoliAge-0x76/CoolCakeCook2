@@ -23,25 +23,16 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class TheEverestCrush() : CCC2_Cards(5, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy) {
 
-    // 珠峰压饼（用于测试耐久词条）：5c 造成325点伤害。耐久1。
+    // 珠峰压饼：5c 造成325点伤害。
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     public override List<CardKeyword> CanonicalKeywords => [
         CustomKeyword.StrikeAttack
     ];
-    protected override List<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromKeyword(CustomKeyword.Durability)
-    ];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(325, ValueProp.Move),
-        new DynamicVar("Durability", 1)
+        new DamageVar(325, ValueProp.Move)
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
         await CommonActions.CardAttack(this, cardPlay).Execute(context);
-        DynamicVars["Durability"].BaseValue--;
-        //CurrentDurability--;
-        if (DynamicVars["Durability"].BaseValue <= 0) {
-            await CardCmd.Exhaust(context, this);
-        }
     }
     protected override void OnUpgrade() {
         base.EnergyCost.UpgradeBy(-1);

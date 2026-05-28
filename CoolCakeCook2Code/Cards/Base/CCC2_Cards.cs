@@ -1,14 +1,9 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using BaseLib.Patches.Content;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.HoverTips;
-using CCCook2.CoolCakeCook2Code.Localization;
 using CCCook2.CoolCakeCook2Code.Characters;
 using CCCook2.CoolCakeCook2Code.Extensions;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.Models;
 
 namespace CoolCakeCook2.CoolCakeCook2Code.Cards.Base;
 

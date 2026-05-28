@@ -26,7 +26,7 @@
   "CCCOOK2-WALL_OF_THORN_POWER.description": "下一回合开始时，失去[gold]荆棘[/gold]。",
   "CCCOOK2-WALL_OF_THORN_POWER.smartDescription": "下一回合开始时，失去{Amount}层[gold]荆棘[/gold]。",
   "CCCOOK2-WALL_OF_THORN_POWER.title": "刺墙",
-  "CCCOOK2-WAFFLE_POWER.description": "本回合受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
-  "CCCOOK2-WAFFLE_POWER.smartDescription": "本回合受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
+  "CCCOOK2-WAFFLE_POWER.description": "受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
+  "CCCOOK2-WAFFLE_POWER.smartDescription": "接下来{Amount}回合内，受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
   "CCCOOK2-WAFFLE_POWER.title": "华夫饼"
 }

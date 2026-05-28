@@ -1,17 +1,8 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using BaseLib.Utils;
-using CCCook2.CoolCakeCook2Code.Characters;
-using CCCook2.CoolCakeCook2Code.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using CCCook2.CoolCakeCook2Code.Localization;
 using CoolCakeCook2.CoolCakeCook2Code.Cards.Base;
 

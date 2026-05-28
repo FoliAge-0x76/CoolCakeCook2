@@ -9,6 +9,10 @@ public static class CustomKeyword {
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword Durability;
 
+    //定义字段：余音
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
+    public static CardKeyword Aftertone;
+
     //定义字段：打击类攻击
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword StrikeAttack;
@@ -17,4 +21,7 @@ public static class CustomKeyword {
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword CakeAttack;
 
+    //定义字段：加料
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
+    public static CardKeyword Seasoning;
 }

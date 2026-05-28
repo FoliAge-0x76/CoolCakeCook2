@@ -52,7 +52,7 @@ public sealed class MagicDoughPower : CCC2_Powers {
     }
 
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
-    ICombatState combatState) {
+    IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (side == Owner.Side) {
             await PowerCmd.Decrement(this);
         }

@@ -42,6 +42,6 @@ public class Lasagna() : CCC2_Cards(2, CardType.Power, CardRarity.Rare, TargetTy
         );
     }
     protected override void OnUpgrade() {
-        base.EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Innate);
     }
 }

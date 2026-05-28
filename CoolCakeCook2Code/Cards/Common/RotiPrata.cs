@@ -52,6 +52,6 @@ public class RotiPrata() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, Tar
         }
     }
     protected override void OnUpgrade() {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

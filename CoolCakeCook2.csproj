@@ -38,7 +38,4 @@
     <Using Include="BaseLib" />
     <Using Include="Godot" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CoolCakeCook2Code\Cards\Colorless\" />
-  </ItemGroup>
 </Project>
