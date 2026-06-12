@@ -32,7 +32,9 @@ public class BoningKnife() : CCC2_Cards(2, CardType.Attack, CardRarity.Uncommon,
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
         foreach (CardModel item in await Shiv.CreateInHand(base.Owner, base.DynamicVars.Cards.IntValue, base.CombatState)) {
             EnchantmentModel enchantment = EnchantmentUtility.GetRandomEnchantment(item);
-            CardCmd.Enchant(enchantment.ToMutable(), item, 1m);
+            int count = 1;
+            if (enchantment.IsStackable) count = 3;
+            CardCmd.Enchant(enchantment.ToMutable(), item, count);
         }
     }
     protected override void OnUpgrade() {

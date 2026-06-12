@@ -37,6 +37,6 @@ public class MountTaiCrush() : CCC2_Cards(3, CardType.Attack, CardRarity.Common,
     }
 
     protected override void OnUpgrade() {
-        DynamicVars.Damage.UpgradeValueBy(5m);
+        DynamicVars.Damage.UpgradeValueBy(9m);
     }
 }

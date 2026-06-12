@@ -14,7 +14,7 @@ public class DefendTueTue() : CCC2_Cards(1, CardType.Skill, CardRarity.Basic, Ta
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(5, ValueProp.Move)
     ];
-
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block)
     ];

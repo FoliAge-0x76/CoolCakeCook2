@@ -42,11 +42,19 @@
   "CCCOOK2-WAFFLE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n本回合受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
   "CCCOOK2-SEASONING.description": "",
   "CCCOOK2-SEASONING.title": "料",
-  "CCCOOK2-SALT.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n对手牌[gold]加料[/gold]1次：[purple]锋利[/purple][blue]{Damage:diff()}[/blue]。",
+  "CCCOOK2-SALT.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n对手牌[gold]加料[/gold]1：[purple]锋利[/purple][blue]{Damage:diff()}[/blue]。",
   "CCCOOK2-SALT.title": "盐",
   "CCCOOK2-SALT.selectionScreenPrompt": "选择一张牌，为其附魔[purple]锋利[/purple][blue]{Damage:diff()}[/blue]。",
   "CCCOOK2-KIRI.description": "消耗所有牌堆中的[gold]小刀[/gold]。\n对所有敌人造成消耗[gold]小刀[/gold]数量{CalculationExtra:diff()}倍的伤害。{InCombat:\n（造成{CalculatedDamage:diff()}点伤害）|}",
   "CCCOOK2-KIRI.title": "斩",
   "CCCOOK2-BONING_KNIFE.description": "造成{Damage:diff()}点伤害。\n将{Cards:diff()}张带有随机[gold]附魔[/gold]的[gold]小刀[/gold]加入你的手牌。",
-  "CCCOOK2-BONING_KNIFE.title": "剔骨刀"
+  "CCCOOK2-BONING_KNIFE.title": "剔骨刀",
+  "CCCOOK2-WHEAT_CAKE.selectionScreenPrompt": "选择1张牌，为其附魔[purple]稳定[/purple]。",
+  "CCCOOK2-WHEAT_CAKE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n对手牌[gold]加料[/gold]1：[purple]稳定[/purple]。",
+  "CCCOOK2-WHEAT_CAKE.title": "麦饼",
+  "CCCOOK2-MUFFIN.selectionScreenPrompt": "选择1张牌，去除其附魔。",
+  "CCCOOK2-MUFFIN.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n选择弃牌堆中的至多1张牌，去除其附魔。",
+  "CCCOOK2-MUFFIN.title": "松饼",
+  "CCCOOK2-CRESCENT_MOON.description": "[gold]生成[/gold]1颗[gold]冰糖[/gold]充能球。",
+  "CCCOOK2-CRESCENT_MOON.title": "残月"
 }

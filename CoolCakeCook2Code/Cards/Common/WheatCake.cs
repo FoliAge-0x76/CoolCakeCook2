@@ -9,47 +9,43 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class Salt() : CCC2_Cards(1, CardType.Skill, CardRarity.Basic, TargetType.Self) {
+public class WheatCake() : CCC2_Cards(2, CardType.Skill, CardRarity.Common, TargetType.Self) {
 
-    // 盐：1c 获得7点格挡 加料：为1张手牌附魔锋利3。
+    // 麦饼：2c 获得12点格挡 加料：为1张手牌附魔稳定。
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(7, ValueProp.Move),
-        new DamageVar(3, ValueProp.Unpowered)
+        new BlockVar(12, ValueProp.Move)
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block),
         HoverTipFactory.FromKeyword(CustomKeyword.Seasoning),
-        HoverTipFactory.FromEnchantment<Sharp>((int)DynamicVars.Damage.BaseValue).First()
+        HoverTipFactory.FromEnchantment<Steady>().First()
     ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
         await CommonActions.CardBlock(this, cardPlay);
 
         List<CardModel> list = (await CardSelectCmd.FromHand(
-            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1), 
-            context: choiceContext, 
-            player: base.Owner, 
-            filter: SaltibleFilter, 
+            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1),
+            context: choiceContext,
+            player: base.Owner,
+            filter: SaltibleFilter,
             source: this
         )).ToList();
 
-        EnchantmentModel enchantment = ModelDb.Enchantment<Sharp>();
+        EnchantmentModel enchantment = ModelDb.Enchantment<Steady>();
 
         foreach (CardModel item in list) {
-            CardCmd.Enchant(enchantment.ToMutable(), item, DynamicVars.Damage.BaseValue);
+            CardCmd.Enchant(enchantment.ToMutable(), item, 1);
         }
     }
-
     private bool SaltibleFilter(CardModel card) {
-        return EnchantmentUtility.IsSeasonable<Sharp>(card);
+        return EnchantmentUtility.IsSeasonable<Steady>(card);
     }
     protected override void OnUpgrade() {
-        DynamicVars.Block.UpgradeValueBy(3m);
-        DynamicVars.Damage.UpgradeValueBy(2m);
+        DynamicVars.Block.UpgradeValueBy(4m);
     }
 }
