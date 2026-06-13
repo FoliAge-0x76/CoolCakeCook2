@@ -22,11 +22,11 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class ThinCake() : CCC2_Cards(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
 
-    // 薄饼：0c 造成1点伤害 将2张小刀加入你的手牌
+    // 薄饼：0c 造成1点伤害 将1张小刀加入你的手牌
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(1, ValueProp.Move),
-        new CardsVar(2)
+        new CardsVar(1)
     ];
     public override List<CardKeyword> CanonicalKeywords => [
         CustomKeyword.CakeAttack
@@ -43,7 +43,6 @@ public class ThinCake() : CCC2_Cards(0, CardType.Attack, CardRarity.Common, Targ
     }
 
     protected override void OnUpgrade() {
-        DynamicVars.Damage.UpgradeValueBy(1m);
         DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }

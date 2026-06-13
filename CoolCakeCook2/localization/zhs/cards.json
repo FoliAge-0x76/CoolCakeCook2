@@ -15,7 +15,7 @@
   "CCCOOK2-THE_EVEREST_CRUSH.title": "珠峰压饼",
   "CCCOOK2-JINKELA.description": "回合开始时，每有一种增益获得{Block:diff()}点[gold]格挡[/gold]。\n每当你获得减益时，抽{Cards:diff()}张牌。",
   "CCCOOK2-JINKELA.title": "金坷垃",
-  "CCCOOK2-ROTI_PRATA.description": "造成{Damage:diff()}点伤害。\n选择手牌中的一张牌，在回合结束时将其放回你的牌堆顶。",
+  "CCCOOK2-ROTI_PRATA.description": "造成{Damage:diff()}点伤害。\n选择手牌中的一张非能力牌，在回合结束时将其放回你的牌堆顶。",
   "CCCOOK2-ROTI_PRATA.title": "飞饼",
   "CCCOOK2-ROTI_PRATA.selectionScreenPrompt": "选择一张牌，在回合结束时放回抽牌堆顶。",
   "CCCOOK2-SIUMAI.title": "烧卖",

@@ -12,9 +12,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class RotiPrata() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class RotiPrata() : CCC2_Cards(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
 
-    // 飞饼：1c 造成9点伤害 选择手牌中的一张牌 在回合结束时放回你的牌堆顶
+    // 飞饼：1c 造成9点伤害 选择手牌中的一张非能力牌 在回合结束时放回你的牌堆顶 消耗
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -29,14 +29,19 @@ public class RotiPrata() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, Tar
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
 
-        CardModel cardModel = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1), context: choiceContext, player: base.Owner, filter: null, source: this)).FirstOrDefault();
+        CardModel cardModel = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1), context: choiceContext, player: base.Owner, filter: NotPower, source: this)).FirstOrDefault();
 
         if (cardModel != null) { 
             returnCardModel = cardModel;
         }
     }
+
+    private bool NotPower(CardModel card) {
+        return card.Type != CardType.Power;
+    }
+
     public override async Task BeforeFlushLate(PlayerChoiceContext choiceContext, Player player) {
-        if (returnCardModel != null && returnCardModel.Pile.Type != PileType.Exhaust) {
+        if (returnCardModel != null) {
             await CardPileCmd.Add(returnCardModel, PileType.Draw, CardPilePosition.Top);
             returnCardModel = null;
         }
