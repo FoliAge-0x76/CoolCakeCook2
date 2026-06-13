@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -22,9 +21,11 @@ public class Salt() : CCC2_Cards(1, CardType.Skill, CardRarity.Basic, TargetType
         new BlockVar(7, ValueProp.Move),
         new DamageVar(3, ValueProp.Unpowered)
     ];
+    public override List<CardKeyword> CanonicalKeywords => [
+        CustomKeyword.Seasoning
+    ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block),
-        HoverTipFactory.FromKeyword(CustomKeyword.Seasoning),
         HoverTipFactory.FromEnchantment<Sharp>((int)DynamicVars.Damage.BaseValue).First()
     ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
@@ -50,6 +51,6 @@ public class Salt() : CCC2_Cards(1, CardType.Skill, CardRarity.Basic, TargetType
     }
     protected override void OnUpgrade() {
         DynamicVars.Block.UpgradeValueBy(3m);
-        DynamicVars.Damage.UpgradeValueBy(2m);
+        DynamicVars.Damage.UpgradeValueBy(1m);
     }
 }

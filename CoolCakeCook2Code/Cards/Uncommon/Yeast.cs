@@ -11,9 +11,9 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Yeast() : CCC2_Cards(0, CardType.Power, CardRarity.Uncommon, TargetType.Self) {
 
-    // 酵母菌：0c 获得2点活力，回合开始时将活力翻倍
+    // 酵母菌：0c 获得3点活力，回合开始时，获得当前活力值一半的活力。
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DynamicVar("VigorAmount",2)
+        new DynamicVar("VigorAmount",3)
         ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromPower<VigorPower>()
@@ -29,7 +29,7 @@ public class Yeast() : CCC2_Cards(0, CardType.Power, CardRarity.Uncommon, Target
         await PowerCmd.Apply<YeastPower>(
             context,
             base.Owner?.Creature,
-            1,
+            50,
             base.Owner.Creature,
             this
         );

@@ -14,40 +14,45 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class WheatCake() : CCC2_Cards(2, CardType.Skill, CardRarity.Common, TargetType.Self) {
+public class GlutenStab() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
 
-    // 麦饼：2c 获得12点格挡 加料：为1张手牌附魔稳定。
+    // 面筋戳：1c 造成10点伤害 对手牌加料1：伶俐2
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(12, ValueProp.Move)
+        new DamageVar(10, ValueProp.Move),
+        new BlockVar(2, ValueProp.Unpowered)
     ];
     public override List<CardKeyword> CanonicalKeywords => [
-        CustomKeyword.Seasoning
+        CustomKeyword.Seasoning,
+        CustomKeyword.StrikeAttack
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.Static(StaticHoverTip.Block),
-        HoverTipFactory.FromEnchantment<Steady>().First()
+        HoverTipFactory.FromEnchantment<Adroit>((int)DynamicVars.Block.BaseValue).First()
     ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
-        await CommonActions.CardBlock(this, cardPlay);
-
+        await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
         List<CardModel> list = (await CardSelectCmd.FromHand(
             prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1),
             context: choiceContext,
             player: base.Owner,
-            filter: SaltibleFilter,
+            filter: GlutenableFilter,
             source: this
         )).ToList();
 
-        EnchantmentModel enchantment = ModelDb.Enchantment<Steady>();
+        EnchantmentModel enchantment = ModelDb.Enchantment<Adroit>();
 
         foreach (CardModel item in list) {
-            CardCmd.Enchant(enchantment.ToMutable(), item, 1);
+            CardCmd.Enchant(enchantment.ToMutable(), item, DynamicVars.Block.BaseValue);
         }
     }
-    private bool SaltibleFilter(CardModel card) {
-        return EnchantmentUtility.IsSeasonable<Steady>(card);
+
+    private bool GlutenableFilter(CardModel card) {
+        return EnchantmentUtility.IsSeasonable<Adroit>(card);
     }
+
     protected override void OnUpgrade() {
-        DynamicVars.Block.UpgradeValueBy(4m);
+        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars.Block.UpgradeValueBy(1m);
     }
 }

@@ -12,10 +12,10 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Pancake() : CCC2_Cards(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy) {
 
-	// 大饼：2c 造成12点伤害，给予1层易伤。饼类攻击。
+	// 大饼：2c 给予1层易伤，造成7点伤害。饼类攻击。
 
 	protected override IEnumerable<DynamicVar> CanonicalVars => [
-		new DamageVar(12, ValueProp.Move),
+		new DamageVar(7, ValueProp.Move),
         new PowerVar<VulnerablePower>(1m)
     ];
     public override List<CardKeyword> CanonicalKeywords => [
@@ -26,8 +26,6 @@ public class Pancake() : CCC2_Cards(2, CardType.Attack, CardRarity.Basic, Target
 	];
 
 	protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
-		await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this)
-			.Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash").Execute(context);
 		await PowerCmd.Apply<VulnerablePower>(
 			context,
 			cardPlay.Target,
@@ -35,9 +33,11 @@ public class Pancake() : CCC2_Cards(2, CardType.Attack, CardRarity.Basic, Target
 			base.Owner.Creature,
 			this
 		);
-	}
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this)
+			.Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash").Execute(context);
+    }
 
 	protected override void OnUpgrade() {
-        DynamicVars.Damage.UpgradeValueBy(4m);
+        DynamicVars.Damage.UpgradeValueBy(3m);
     }
 }

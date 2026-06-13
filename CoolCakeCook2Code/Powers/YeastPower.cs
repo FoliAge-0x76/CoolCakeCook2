@@ -27,7 +27,7 @@ public sealed class YeastPower : CCC2_Powers {
         if (side == base.Owner.Side) {
             Flash();
             int currentVigor = Owner.GetPower<VigorPower>()?.Amount ?? 0;
-            await PowerCmd.Apply<VigorPower>(null, Owner, currentVigor * Amount, Owner, null);
+            await PowerCmd.Apply<VigorPower>(null, Owner, currentVigor * Amount / 100, Owner, null);
         }
     }
 }

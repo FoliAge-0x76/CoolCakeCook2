@@ -22,6 +22,6 @@ public static class CustomKeyword {
     public static CardKeyword CakeAttack;
 
     //定义字段：加料
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.None)]
     public static CardKeyword Seasoning;
 }

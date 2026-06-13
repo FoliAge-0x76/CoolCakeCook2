@@ -1,25 +1,14 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using BaseLib.Utils;
-using CCCook2.CoolCakeCook2Code.Characters;
-using CCCook2.CoolCakeCook2Code.Extensions;
 using CCCook2.CoolCakeCook2Code.Localization;
-using CCCook2.CoolCakeCook2Code.Powers;
 using CoolCakeCook2.CoolCakeCook2Code.Cards.Base;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
@@ -32,7 +21,8 @@ public class RotiPrata() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, Tar
         new DamageVar(9, ValueProp.Move)
     ];
     public override List<CardKeyword> CanonicalKeywords => [
-        CustomKeyword.StrikeAttack
+        CustomKeyword.StrikeAttack,
+        CardKeyword.Exhaust
     ];
 
     private CardModel returnCardModel = null;
