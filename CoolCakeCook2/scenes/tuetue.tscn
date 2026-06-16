@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://hlmjifecra7f"]
+
+[ext_resource type="Texture2D" uid="uid://dh2mx8oelmqcr" path="res://CoolCakeCook2/images/charui/tuetue_char_idle.png" id="1_acfew"]
+[ext_resource type="Texture2D" uid="uid://urcthalp0cvy" path="res://CoolCakeCook2/images/charui/tuetue_char_attack.png" id="1_vrubw"]
+[ext_resource type="Texture2D" uid="uid://bides7wqo3bkf" path="res://CoolCakeCook2/images/charui/map_marker_char_name.png" id="2_pmatl"]
+[ext_resource type="Texture2D" uid="uid://3f1mp4t7r26t" path="res://CoolCakeCook2/images/charui/tuetue_char_cast.png" id="2_vylu5"]
+[ext_resource type="Texture2D" uid="uid://epn2jhnlste7" path="res://CoolCakeCook2/images/charui/tuetue_char_die_0.png" id="3_pmatl"]
+[ext_resource type="Texture2D" uid="uid://bgypsbt2dyba1" path="res://CoolCakeCook2/images/charui/tuetue_char_hurt.png" id="4_x0bmv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_po7nr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vrubw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pmatl")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vylu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_acfew")
+}],
+"loop": false,
+"name": &"cast",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pmatl")
+}],
+"loop": false,
+"name": &"die",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x0bmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_acfew")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_acfew")
+}],
+"loop": true,
+"name": &"idle_loop",
+"speed": 1.0
+}]
+
+[node name="tuetue" type="Node2D"]
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -141.00003)
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_po7nr")
+animation = &"attack"
+autoplay = "idle_loop"
+
+[node name="Bounds" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -116.0
+offset_top = -219.0
+offset_right = 113.0
+offset_bottom = 10.0
+
+[node name="IntentPos" type="Marker2D" parent="."]
+position = Vector2(-2, -268)
+
+[node name="CenterPos" type="Marker2D" parent="."]
+position = Vector2(-1, -95)

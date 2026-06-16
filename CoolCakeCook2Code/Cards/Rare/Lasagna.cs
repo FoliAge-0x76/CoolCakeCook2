@@ -20,11 +20,11 @@ using CoolCakeCook2.CoolCakeCook2Code.Cards.Base;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class Lasagna() : CCC2_Cards(2, CardType.Power, CardRarity.Rare, TargetType.Self) {
+public class Lasagna() : CCC2_Cards(1, CardType.Power, CardRarity.Rare, TargetType.Self) {
 
-    // 千层饼：2c 每打出一张打击类攻击牌或小刀 获得2点格挡
+    // 千层饼：1c 每打出一张打击类攻击牌或小刀 获得1点格挡
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<LasagnaPower>(2)
+        new PowerVar<LasagnaPower>(1)
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromKeyword(CustomKeyword.StrikeAttack),

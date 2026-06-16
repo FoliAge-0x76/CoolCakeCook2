@@ -11,9 +11,9 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class RiceBall() : CCC2_Cards(1, CardType.Power, CardRarity.Rare, TargetType.Self) {
 
-    // 糯米团子：1c 清除身上所有负面效果 消耗牌堆中所有状态牌 获得2层人工制品
+    // 糯米团子：1c 清除身上所有负面效果 消耗牌堆中所有状态牌 获得1层人工制品
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<ArtifactPower>(2)
+        new PowerVar<ArtifactPower>(1)
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
@@ -40,6 +40,6 @@ public class RiceBall() : CCC2_Cards(1, CardType.Power, CardRarity.Rare, TargetT
         );
     }
     protected override void OnUpgrade() {
-        DynamicVars["ArtifactPower"].UpgradeValueBy(1m);
+        AddKeyword(CardKeyword.Retain);
     }
 }

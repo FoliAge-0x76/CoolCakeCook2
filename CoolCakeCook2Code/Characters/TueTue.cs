@@ -13,16 +13,18 @@ using System.Collections.Generic;
 
 namespace CCCook2.CoolCakeCook2Code.Characters;
 
-public class TueTue : PlaceholderCharacterModel
-{
-	public const string CharacterId = "TueTue";
+public class TueTue : PlaceholderCharacterModel {
+	public const string CharacterId = "tuetue";
 
 	public override string PlaceholderID => "defect";
-	
-	public static readonly Color Color = new("ffffff");
-
-	public override Color NameColor => Color;
-	public override CharacterGender Gender => CharacterGender.Neutral;
+    public override string CustomVisualPath => "res://CoolCakeCook2/scenes/tuetue.tscn";
+    public override string CustomCharacterSelectBg => "res://CoolCakeCook2/scenes/tuetue_bg.tscn";
+    public static readonly Color Color = new("635136");
+    public override Color NameColor => Color;
+    public override Color DialogueColor => Color;
+    public override Color EnergyLabelOutlineColor => Color;
+    public override Color MapDrawingColor => Color;
+    public override CharacterGender Gender => CharacterGender.Neutral;
 	public override int StartingHp => 70;
 	
 	public override IEnumerable<CardModel> StartingDeck => [
@@ -38,8 +40,7 @@ public class TueTue : PlaceholderCharacterModel
         ModelDb.Card<Pancake>()
 	];
 
-	public override IReadOnlyList<RelicModel> StartingRelics =>
-	[
+	public override IReadOnlyList<RelicModel> StartingRelics => [
 		ModelDb.Relic<BurningBlood>()
 	];
 	
@@ -51,10 +52,8 @@ public class TueTue : PlaceholderCharacterModel
 		override all the other methods that define those assets. 
 		These are just some of the simplest assets, given some placeholders to differentiate your character with. 
 		You don't have to, but you're suggested to rename these images. */
-	public override Control CustomIcon
-	{
-		get
-		{
+	public override Control CustomIcon {
+		get {
 			var icon = NodeFactory<Control>.CreateFromResource(CustomIconTexturePath);
 			icon.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
 			return icon;
