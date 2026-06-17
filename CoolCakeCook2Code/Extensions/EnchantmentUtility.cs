@@ -1,5 +1,6 @@
 using CCCook2.CoolCakeCook2Code.Localization;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Enchantments;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 
@@ -50,6 +51,7 @@ public static class EnchantmentUtility {
         }
         if (flag) {
             if (!enchantment.CanEnchant(card)) flag = false;
+            if (enchantment.Status == EnchantmentStatus.Disabled) flag = false;
         }
         return flag;
     }

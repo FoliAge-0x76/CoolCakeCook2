@@ -9,17 +9,16 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Muffin() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
 
-    // 松饼：1c 获得9点格挡 选择弃牌堆中的至多一张牌 去除其附魔
+    // 松饼：1c 获得9点格挡 选择弃牌堆中的至多1张牌 去除其附魔
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(9, ValueProp.Move)
+        new BlockVar(9, ValueProp.Move),
+        new CardsVar(1)
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block)
@@ -27,7 +26,13 @@ public class Muffin() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetT
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
         await CommonActions.CardBlock(this, cardPlay);
 
-        CardModel cardModel = (await CardSelectCmd.FromCombatPile(prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 0, 1), context: choiceContext, pile: PileType.Discard.GetPile(base.Owner), player: base.Owner, filter: HasEnchantment)).FirstOrDefault();
+        CardModel cardModel = (await CardSelectCmd.FromCombatPile(
+            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 0, (int)DynamicVars.Cards.BaseValue), 
+            context: choiceContext, pile: PileType.Discard.GetPile(base.Owner), 
+            player: base.Owner, 
+            filter: HasEnchantment
+        )).FirstOrDefault();
+
         if (cardModel != null) {
             CardCmd.ClearEnchantment(cardModel);
         }
@@ -36,6 +41,7 @@ public class Muffin() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetT
         return card.Enchantment != null;
     }
     protected override void OnUpgrade() {
-        DynamicVars.Block.UpgradeValueBy(3m);
+        DynamicVars.Block.UpgradeValueBy(2m);
+        DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }

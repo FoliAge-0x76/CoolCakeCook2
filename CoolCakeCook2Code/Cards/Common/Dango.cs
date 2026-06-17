@@ -11,7 +11,7 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Dango() : CCC2_Cards(0, CardType.Skill, CardRarity.Common, TargetType.Self) {
 
-    // 团子：0c 你的下一张饼类攻击费用-1 耐久2
+    // 团子：0c 你的下一张饼类攻击费用-1 余音2
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromKeyword(CustomKeyword.CakeAttack),
         HoverTipFactory.FromKeyword(CustomKeyword.Aftertone)

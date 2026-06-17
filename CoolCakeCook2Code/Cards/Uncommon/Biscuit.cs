@@ -10,9 +10,9 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Biscuit() : CCC2_Cards(1, CardType.Power, CardRarity.Uncommon, TargetType.Self) {
 
-    // 饼干：1c 获得3层多层护甲。
+    // 饼干：1c 获得4层多层护甲。
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<PlatedArmorPower>(3)
+        new PowerVar<PlatedArmorPower>(4)
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromPower<PlatedArmorPower>()

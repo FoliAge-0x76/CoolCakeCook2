@@ -29,7 +29,7 @@ public class TheEverestCrush() : CCC2_Cards(5, CardType.Attack, CardRarity.Rare,
         CustomKeyword.StrikeAttack
     ];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(325, ValueProp.Move)
+        new DamageVar(91, ValueProp.Move)
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
         await CommonActions.CardAttack(this, cardPlay).Execute(context);

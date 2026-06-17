@@ -1,31 +1,26 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Logging;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
-using CCCook2.CoolCakeCook2Code.Characters;
-using CCCook2.CoolCakeCook2Code.Extensions;
 using CCCook2.CoolCakeCook2Code.Localization;
 using CCCook2.CoolCakeCook2Code.Powers;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using CoolCakeCook2.CoolCakeCook2Code.Cards.Base;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class MagicDough() : CCC2_Cards(0, CardType.Skill, CardRarity.Rare, TargetType.Self) {
+public class MagicDough() : CCC2_Cards(1, CardType.Skill, CardRarity.Rare, TargetType.Self) {
 
-    // 魔法面团：0c 阻止本回合受到的未被格挡的伤害 并在下回合结束时受到等量伤害 消耗
+    // 魔法面团：1c 保留。阻止本回合受到的未被格挡的伤害 并在下回合结束时受到等量伤害 余音2
 
     public override List<CardKeyword> CanonicalKeywords => [
-        CardKeyword.Exhaust
+        CardKeyword.Retain
+    ];
+    protected override List<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.FromKeyword(CustomKeyword.Aftertone)
+    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new DynamicVar("Aftertone", 2)
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
 
@@ -36,9 +31,14 @@ public class MagicDough() : CCC2_Cards(0, CardType.Skill, CardRarity.Rare, Targe
             base.Owner.Creature,
             this
         );
+
+        DynamicVars["Aftertone"].BaseValue--;
+        if (DynamicVars["Aftertone"].BaseValue <= 0) {
+            await CardCmd.Exhaust(context, this);
+        }
     }
 
     protected override void OnUpgrade() {
-        AddKeyword(CardKeyword.Retain);
+        base.EnergyCost.UpgradeBy(-1);
     }
 }

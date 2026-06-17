@@ -20,25 +20,21 @@ using CoolCakeCook2.CoolCakeCook2Code.Cards.Base;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class WallOfThorn() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class WallOfThorn() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
 
-    // 刺墙：1c 获得6点格挡 造成4点伤害 在本回合获得2点荆棘
+    // 刺墙：1c 获得5点格挡 在本回合获得3点荆棘 将1张小刀加入你的手牌
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(6, ValueProp.Move),
-        new DamageVar(4, ValueProp.Move),
-        new PowerVar<WallOfThornPower>(2),
-        new CardsVar(0)
-    ];
-    public override List<CardKeyword> CanonicalKeywords => [
-        CustomKeyword.StrikeAttack
+        new BlockVar(5, ValueProp.Move),
+        new PowerVar<WallOfThornPower>(3),
+        new CardsVar(1)
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block),
-        HoverTipFactory.FromPower<ThornsPower>()
+        HoverTipFactory.FromPower<ThornsPower>(),
+        HoverTipFactory.FromCard<Shiv>()
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
-        await CommonActions.CardAttack(this, cardPlay).Execute(context);
         await CommonActions.CardBlock(this, cardPlay);
         await PowerCmd.Apply<ThornsPower>(context, Owner?.Creature, DynamicVars["WallOfThornPower"].BaseValue, Owner.Creature, this);
         await PowerCmd.Apply<WallOfThornPower>(context, Owner?.Creature, DynamicVars["WallOfThornPower"].BaseValue, Owner.Creature, this);
@@ -48,10 +44,7 @@ public class WallOfThorn() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, T
     }
 
     protected override void OnUpgrade() {
-        DynamicVars.Block.UpgradeValueBy(1m);
-        DynamicVars.Damage.UpgradeValueBy(1m);
-        DynamicVars["WallOfThornPower"].UpgradeValueBy(1m);
-        DynamicVars.Cards.UpgradeValueBy(1m);
-        ExtraHoverTips.Add(HoverTipFactory.FromCard<Shiv>());
+        DynamicVars.Block.UpgradeValueBy(2m);
+        DynamicVars["WallOfThornPower"].UpgradeValueBy(2m);
     }
 }
