@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
@@ -20,7 +21,8 @@ public class RiceBall() : CCC2_Cards(1, CardType.Power, CardRarity.Rare, TargetT
         HoverTipFactory.FromPower<ArtifactPower>()
     ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
-        foreach (var debuff in base.Owner.Creature.Powers.Where(p => p.GetTypeForAmount(p.Amount) == PowerType.Debuff)) {
+        List<PowerModel> toRemove = Owner.Creature.Powers.Where(p => p.GetTypeForAmount(p.Amount) == PowerType.Debuff).ToList();
+        foreach (var debuff in toRemove) {
             await PowerCmd.Remove(debuff);
         }
 

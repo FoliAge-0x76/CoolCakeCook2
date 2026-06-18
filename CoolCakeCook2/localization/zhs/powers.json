@@ -28,5 +28,8 @@
   "CCCOOK2-WALL_OF_THORN_POWER.title": "刺墙",
   "CCCOOK2-WAFFLE_POWER.description": "受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
   "CCCOOK2-WAFFLE_POWER.smartDescription": "接下来{Amount}回合内，受到的伤害和获得的负面效果将被等量地返还给攻击者/给予者。",
-  "CCCOOK2-WAFFLE_POWER.title": "华夫饼"
+  "CCCOOK2-WAFFLE_POWER.title": "华夫饼",
+  "CCCOOK2-WAVY_NORI_POWER.description": "受到攻击时减少1层。回合开始时减少1层，并将一张[gold]大波浪[/gold]加入手牌。",
+  "CCCOOK2-WAVY_NORI_POWER.smartDescription": "受到攻击时减少1层。回合开始时减少1层，并将一张[gold]大波浪[/gold]加入手牌。",
+  "CCCOOK2-WAVY_NORI_POWER.title": "波浪"
 }

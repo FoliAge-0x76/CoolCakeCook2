@@ -15,11 +15,11 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class BoningKnife() : CCC2_Cards(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) {
 
-    // 剔骨刀：2c 造成6点伤害，将2张随机附魔的小刀加入手牌。
+    // 剔骨刀：2c 造成8点伤害，将2张随机附魔的小刀加入手牌。
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(6, ValueProp.Move),
+        new DamageVar(8, ValueProp.Move),
         new CardsVar(2)
     ];
     public override List<CardKeyword> CanonicalKeywords => [

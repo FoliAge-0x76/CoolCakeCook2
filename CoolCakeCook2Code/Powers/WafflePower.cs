@@ -21,7 +21,6 @@ public sealed class WafflePower : CCC2_Powers {
         if (!(amount <= 0m) && applier != null && !applier.IsPlayer) {
             if (power.GetTypeForAmount(amount) == PowerType.Debuff) {
                 Flash();
-                // TODO: 有Bug
                 PowerModel powerToApply = ModelDb.GetById<PowerModel>(power.Id).ToMutable();
                 await PowerCmd.Apply(choiceContext, powerToApply, applier, amount, base.Owner, cardSource);
             }

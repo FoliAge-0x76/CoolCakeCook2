@@ -66,5 +66,9 @@
   "CCCOOK2-BAKLAVA.description": "造成{Damage:diff()}点伤害。\n对手牌[gold]加料[/gold]1：[purple]迅速[/purple][blue]{Cards:diff()}[/blue]。",
   "CCCOOK2-BAKLAVA.title": "酥饼",
   "CCCOOK2-LITTLE_STRAWBERRY.description": "令一名盟友获得{Energy:energyIcons()}。\n随机[gold]侵蚀[/gold]其所有牌。",
-  "CCCOOK2-LITTLE_STRAWBERRY.title": "小草莓"
+  "CCCOOK2-LITTLE_STRAWBERRY.title": "小草莓",
+  "CCCOOK2-WAVY_NORI.description": "获得{WavyNoriPower:diff()}层[gold]波浪[/gold]。",
+  "CCCOOK2-WAVY_NORI.title": "波力海苔",
+  "CCCOOK2-BIG_WAVE.description": "将你的生命值、牌组、能量、状态（对[gold]波浪[/gold]无效）均回滚到此牌生成的时刻。{InCombat:\n（回到第{TurnNumber:diff()}回合的开始）|}",
+  "CCCOOK2-BIG_WAVE.title": "大波浪"
 }
