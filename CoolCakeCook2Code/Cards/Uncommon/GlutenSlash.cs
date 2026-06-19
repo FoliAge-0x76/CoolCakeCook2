@@ -14,13 +14,14 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CCCook2.CoolCakeCook2Code.Cards;
 
-public class GlutenStab() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy) {
+public class GlutenSlash() : CCC2_Cards(2, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies) {
 
-    // 面筋戳：1c 造成10点伤害 对手牌加料1：伶俐2
+    // 面筋劈：2c 对所有敌人造成11点伤害 对手牌加料2：伶俐2
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(10, ValueProp.Move),
+        new DamageVar(11, ValueProp.Move),
+        new CardsVar(2),
         new BlockVar(2, ValueProp.Unpowered)
     ];
     public override List<CardKeyword> CanonicalKeywords => [
@@ -33,7 +34,7 @@ public class GlutenStab() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, Ta
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
         List<CardModel> list = (await CardSelectCmd.FromHand(
-            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1),
+            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, (int)base.DynamicVars.Cards.BaseValue),
             context: choiceContext,
             player: base.Owner,
             filter: GlutenableFilter,
@@ -52,6 +53,7 @@ public class GlutenStab() : CCC2_Cards(1, CardType.Attack, CardRarity.Common, Ta
     }
 
     protected override void OnUpgrade() {
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars.Damage.UpgradeValueBy(2m);
+        DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }

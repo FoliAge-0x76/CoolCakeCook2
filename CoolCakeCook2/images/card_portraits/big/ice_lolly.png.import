@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvsjo2syxmsgd"
-path="res://.godot/imported/seasoning.png-4ef493f9a78cb703b170dfef792a3974.ctex"
+uid="uid://cv53ms1uly173"
+path="res://.godot/imported/ice_lolly.png-00921e6b0053bd26c46721efdce24607.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CoolCakeCook2/images/card_portraits/big/seasoning.png"
-dest_files=["res://.godot/imported/seasoning.png-4ef493f9a78cb703b170dfef792a3974.ctex"]
+source_file="res://CoolCakeCook2/images/card_portraits/big/ice_lolly.png"
+dest_files=["res://.godot/imported/ice_lolly.png-00921e6b0053bd26c46721efdce24607.ctex"]
 
 [params]
 

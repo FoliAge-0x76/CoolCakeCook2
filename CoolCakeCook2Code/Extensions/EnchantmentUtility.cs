@@ -51,7 +51,7 @@ public static class EnchantmentUtility {
         }
         if (flag) {
             if (!enchantment.CanEnchant(card)) flag = false;
-            if (enchantment.Status == EnchantmentStatus.Disabled) flag = false;
+            if (card.Enchantment != null && card.Enchantment.Status == EnchantmentStatus.Disabled) flag = false;
         }
         return flag;
     }

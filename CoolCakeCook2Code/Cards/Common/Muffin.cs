@@ -15,7 +15,7 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Muffin() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetType.Self) {
 
-    // 松饼：1c 获得9点格挡 选择弃牌堆中的至多1张牌 去除其附魔
+    // 松饼：1c 获得9点格挡 选择弃牌堆中的至多1张牌 去除其附魔和侵蚀
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(9, ValueProp.Move),
         new CardsVar(1)
@@ -30,15 +30,16 @@ public class Muffin() : CCC2_Cards(1, CardType.Skill, CardRarity.Common, TargetT
             prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 0, (int)DynamicVars.Cards.BaseValue), 
             context: choiceContext, pile: PileType.Discard.GetPile(base.Owner), 
             player: base.Owner, 
-            filter: HasEnchantment
+            filter: HasEnchantmentOrAffliction
         )).FirstOrDefault();
 
         if (cardModel != null) {
             CardCmd.ClearEnchantment(cardModel);
+            CardCmd.ClearAffliction(cardModel);
         }
     }
-    private bool HasEnchantment(CardModel card) {
-        return card.Enchantment != null;
+    private bool HasEnchantmentOrAffliction(CardModel card) {
+        return card.Enchantment != null || card.Affliction != null;
     }
     protected override void OnUpgrade() {
         DynamicVars.Block.UpgradeValueBy(2m);

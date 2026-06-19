@@ -23,10 +23,9 @@ public sealed class WavyNoriPower : CCC2_Powers {
             await PowerCmd.Decrement(this);
         }
     }
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
-    IReadOnlyList<Creature> participants, ICombatState combatState) {
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {
         if (side == Owner.Side) {
-            await BigWave.CreateInHand(choiceContext, base.Owner.Player, 1, combatState);
+            await BigWave.CreateInHand(base.Owner.Player, 1, combatState);
             await PowerCmd.Decrement(this);
         }
     }
