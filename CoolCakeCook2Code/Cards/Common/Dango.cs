@@ -11,16 +11,17 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Dango() : CCC2_Cards(0, CardType.Skill, CardRarity.Common, TargetType.Self) {
 
-    // 团子：0c 你的下一张饼类攻击费用-1 余音2
+    // 团子：0c 抽1张牌 你的下一张饼类攻击费用-1 余音1
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.FromKeyword(CustomKeyword.CakeAttack),
         HoverTipFactory.FromKeyword(CustomKeyword.Aftertone)
     ];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<DecreaseCakeAttackCostPower>(1),
-        new DynamicVar("Aftertone", 2)
+        new DynamicVar("Aftertone", 1)
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
+        await CardPileCmd.Draw(context, 1, base.Owner);
+
         await PowerCmd.Apply<DecreaseCakeAttackCostPower>(
             context,
             base.Owner?.Creature,

@@ -11,7 +11,7 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class MagicDough() : CCC2_Cards(1, CardType.Skill, CardRarity.Rare, TargetType.Self) {
 
-    // 魔法面团：1c 保留。阻止本回合受到的未被格挡的伤害 并在下回合结束时受到等量伤害 余音2
+    // 魔法面团：1c 保留。阻止本回合受到的未被格挡的伤害 并在下回合结束时受到等量伤害 余音1
 
     public override List<CardKeyword> CanonicalKeywords => [
         CardKeyword.Retain
@@ -20,7 +20,7 @@ public class MagicDough() : CCC2_Cards(1, CardType.Skill, CardRarity.Rare, Targe
         HoverTipFactory.FromKeyword(CustomKeyword.Aftertone)
     ];
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DynamicVar("Aftertone", 2)
+        new DynamicVar("Aftertone", 1)
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
 

@@ -11,11 +11,11 @@ namespace CCCook2.CoolCakeCook2Code.Cards;
 
 public class Burrito() : CCC2_Cards(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy) {
 
-    // 卷饼：1c 获得7点格挡。若这名敌人的意图是攻击，抽1张牌。
+    // 卷饼：1c 获得7点格挡。若这名敌人的意图是攻击，抽2张牌。
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(7, ValueProp.Move),
-        new CardsVar(1)
+        new CardsVar(2)
     ];
     protected override List<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block)
