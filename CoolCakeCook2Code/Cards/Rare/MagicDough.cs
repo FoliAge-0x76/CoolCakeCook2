@@ -23,6 +23,8 @@ public class MagicDough() : CCC2_Cards(1, CardType.Skill, CardRarity.Rare, Targe
         new DynamicVar("Aftertone", 1)
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
+        if (DynamicVars["Aftertone"].BaseValue <= 0)
+            return;
 
         await PowerCmd.Apply<MagicDoughPower>(
             context,

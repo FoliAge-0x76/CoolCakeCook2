@@ -20,6 +20,9 @@ public class Dango() : CCC2_Cards(0, CardType.Skill, CardRarity.Common, TargetTy
         new DynamicVar("Aftertone", 1)
     ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
+        if(DynamicVars["Aftertone"].BaseValue <= 0)
+            return;
+
         await CardPileCmd.Draw(context, 1, base.Owner);
 
         await PowerCmd.Apply<DecreaseCakeAttackCostPower>(

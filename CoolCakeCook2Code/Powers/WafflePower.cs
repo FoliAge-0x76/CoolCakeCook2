@@ -1,3 +1,4 @@
+using CCCook2.CoolCakeCook2Code.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -5,9 +6,6 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace CCCook2.CoolCakeCook2Code.Powers;
@@ -22,7 +20,9 @@ public sealed class WafflePower : CCC2_Powers {
             if (power.GetTypeForAmount(amount) == PowerType.Debuff) {
                 Flash();
                 PowerModel powerToApply = ModelDb.GetById<PowerModel>(power.Id).ToMutable();
-                await PowerCmd.Apply(choiceContext, powerToApply, applier, amount, base.Owner, cardSource);
+                if (!AfflictionUtility.isAfflictionPower(powerToApply)) {
+                    await PowerCmd.Apply(choiceContext, powerToApply, applier, amount, base.Owner, cardSource);
+                }
             }
         }
     }

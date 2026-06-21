@@ -5,7 +5,7 @@
   "CCCOOK2-CAKEATTACK.title": "饼类攻击",
   "CCCOOK2-DURABILITY.description": "每打出1次消耗1点耐久。耐久为0的牌无法打出。",
   "CCCOOK2-DURABILITY.title": "耐久",
-  "CCCOOK2-AFTERTONE.description": "打出一定次数后，这张牌将会被[gold]消耗[/gold]。",
+  "CCCOOK2-AFTERTONE.description": "打出一定次数后，这张牌将会被[gold]消耗[/gold]。余音0的卡牌没有任何效果。",
   "CCCOOK2-AFTERTONE.title": "余音",
   "CCCOOK2-SEASONING.description": "选择一张[gold]饼类攻击[/gold]或技能牌进行[gold]附魔[/gold]。",
   "CCCOOK2-SEASONING.title": "加料"
