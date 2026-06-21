@@ -24,7 +24,7 @@ public class Jinkela() : CCC2_Cards(1, CardType.Power, CardRarity.Uncommon, Targ
 
     // 金坷垃：1c 回合开始时，每有一种增益获得2点格挡。每当你获得减益时，抽1张牌。
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(2, ValueProp.Move),
+        new BlockVar(2, ValueProp.Unpowered),
         new CardsVar(1)
         ];
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {

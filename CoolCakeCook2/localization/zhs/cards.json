@@ -23,7 +23,7 @@
   "CCCOOK2-DANGO.title": "团子",
   "CCCOOK2-DANGO.description": "抽1张牌。\n你的下一张[gold]饼类攻击[/gold]费用减少1。\n[gold]余音[/gold]{Aftertone:diff()}。",
   "CCCOOK2-YEAST.title": "酵母菌",
-  "CCCOOK2-YEAST.description": "获得{VigorAmount:diff()}点[gold]活力[/gold]。\n每个回合开始时，获得当前活力值一半的活力。",
+  "CCCOOK2-YEAST.description": "获得{VigorAmount:diff()}点[gold]活力[/gold]。\n每个回合开始时，获得当前活力值一半的[gold]活力[/gold]。（至少获得1点，至多到50点）",
   "CCCOOK2-MAGIC_DOUGH.title": "魔法面团",
   "CCCOOK2-MAGIC_DOUGH.description": "阻止本回合受到的未被格挡的伤害，并在下回合结束时受到等量伤害。\n[gold]余音[/gold]{Aftertone:diff()}。",
   "CCCOOK2-BISCUIT.title": "饼干",

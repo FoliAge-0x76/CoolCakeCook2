@@ -1,20 +1,8 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
-using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
-using System.Threading.Tasks;
 
 
 namespace CCCook2.CoolCakeCook2Code.Powers;
@@ -27,7 +15,11 @@ public sealed class YeastPower : CCC2_Powers {
         if (side == base.Owner.Side) {
             Flash();
             int currentVigor = Owner.GetPower<VigorPower>()?.Amount ?? 0;
-            await PowerCmd.Apply<VigorPower>(null, Owner, currentVigor * Amount / 100, Owner, null);
+            if (currentVigor < 50) {
+                decimal vigorToApply = Math.Min(50 - currentVigor, currentVigor * Amount / 100);
+                if(vigorToApply == 0) vigorToApply = 1;
+                await PowerCmd.Apply<VigorPower>(null, Owner, vigorToApply, Owner, null);
+            }
         }
     }
 }
