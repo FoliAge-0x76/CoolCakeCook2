@@ -46,7 +46,7 @@ public class DaoxiaoNoodles() : CCC2_Cards(1, CardType.Attack, CardRarity.Uncomm
     ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount((int)((CalculatedVar)DynamicVars["CalculatedShivs"]).Calculate(cardPlay.Target)).FromCard(this)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount((int)((CalculatedVar)DynamicVars["CalculatedShivs"]).Calculate(cardPlay.Target)).FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitVfxNode((t) => NStabVfx.Create(t, facingEnemies: true))
             .WithHitFx(null, null, "blunt_attack.mp3")

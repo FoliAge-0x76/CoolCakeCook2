@@ -30,7 +30,7 @@ public sealed class NextTurnDamagePower : CCC2_Powers {
         if (side == Owner.Side) {
             decimal damage = Amount;
             await PowerCmd.Remove(this);
-            await CreatureCmd.Damage(choiceContext, Owner, damage, ValueProp.Unpowered, Owner, null);
+            await CreatureCmd.Damage(choiceContext, Owner, damage, ValueProp.Unpowered, Owner);
         }
     }
 }

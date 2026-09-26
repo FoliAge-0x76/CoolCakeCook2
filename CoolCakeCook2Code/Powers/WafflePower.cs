@@ -28,7 +28,7 @@ public sealed class WafflePower : CCC2_Powers {
     }
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource) {
         if (target == base.Owner && result.TotalDamage > 0 && props.IsPoweredAttack() && dealer != null) {
-            await CreatureCmd.Damage(choiceContext, dealer, result.TotalDamage, ValueProp.Unpowered, base.Owner, null);
+            await CreatureCmd.Damage(choiceContext, dealer, result.TotalDamage, ValueProp.Unpowered, base.Owner);
         }
     }
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState) {

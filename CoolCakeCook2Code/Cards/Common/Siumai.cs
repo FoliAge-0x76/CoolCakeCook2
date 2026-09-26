@@ -36,8 +36,8 @@ public class Siumai() : CCC2_Cards(0, CardType.Attack, CardRarity.Common, Target
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext context, CardPlay cardPlay) {
-        await CreatureCmd.LoseBlock(cardPlay.Target, base.DynamicVars.Block.BaseValue);
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this)
+        await CreatureCmd.LoseBlock(context, cardPlay.Target, base.DynamicVars.Block.BaseValue, base.Owner.Creature);
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay)
             .Targeting(cardPlay.Target).WithHitFx("vfx/vfx_molten_fist", null, "blunt_attack.mp3").Execute(context);
         await PowerCmd.Apply<WeakPower>(
             context,

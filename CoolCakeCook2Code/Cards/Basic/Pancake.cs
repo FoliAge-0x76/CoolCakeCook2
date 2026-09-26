@@ -33,7 +33,7 @@ public class Pancake() : CCC2_Cards(2, CardType.Attack, CardRarity.Basic, Target
 			base.Owner.Creature,
 			this
 		);
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this)
+        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this, cardPlay)
 			.Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash").Execute(context);
     }
 

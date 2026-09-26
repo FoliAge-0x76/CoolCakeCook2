@@ -36,7 +36,7 @@ public class PotCake() : CCC2_Cards(2, CardType.Attack, CardRarity.Uncommon, Tar
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         bool shouldTriggerFatal = cardPlay.Target.Powers.All((PowerModel p) => p.ShouldOwnerDeathTriggerFatal());
-        AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCard(this,cardPlay).Targeting(cardPlay.Target)
             .Execute(choiceContext);
         if (shouldTriggerFatal && attackCommand.Results.SelectMany((List<DamageResult> r) => r).Any((DamageResult r) => r.WasTargetKilled)) {
             await PlayerCmd.GainEnergy(base.DynamicVars.Energy.IntValue, Owner);

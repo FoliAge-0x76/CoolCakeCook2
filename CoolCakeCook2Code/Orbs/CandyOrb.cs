@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models.Orbs;
 
 namespace CCCook2.CoolCakeCook2Code.Orbs;
 
@@ -40,7 +41,7 @@ public class CandyOrb : CustomOrbModel {
     }
 
     public override async Task Passive(PlayerChoiceContext choiceContext, Creature? target) {
-        Trigger();
+        ActivatePassive();
         await CreatureCmd.Heal(base.Owner.Creature, PassiveVal);
     }
 
